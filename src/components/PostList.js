@@ -33,7 +33,7 @@ export default function PostList(props) {
         return (
             <div className='row justify-content-center'>
               {
-                  posts.filter((post) => post.author == authorId)
+                  posts.filter((post) => post.author === parseInt(authorId))
                   .map((post) => (
                       <div className='col-md-6 col-sm-12 my-2'>
                       <MinimizedPost key={post.id} post={post}/>
