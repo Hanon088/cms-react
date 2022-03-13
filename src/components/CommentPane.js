@@ -13,20 +13,55 @@ export default function CommentPane(props) {
     const addComment = () => {
       if(content !== "" && author_name !== ""){
       let newComment = {
-        id: -1,
         post: postId,
         parent: 0,
-        author: 0,
         author_name: "",
-        content: {
-          rendered: "",
-        },
+        author_url: "",
+        date: "",
+        date_gmt: "",
+        content: "",
+        link: "",
+        type: "comment",
+        meta: [],
+        _links: {
+          self: [
+              {
+                href: "",
+              },
+            ],
+          collection: [
+              {
+                href: "",
+              },
+            ],
+          up: [
+              {
+                embeddable: true,
+                post_type: "post",
+                href: `https://fswd-wp.devnss.com/wp-json/wp/v2/posts/${postId}`,
+              },
+            ],
+          },
       };
+      
       let time = new Date();
-      newComment.id = comments.length + 10;
       newComment.date = time.toISOString();
+      newComment.date_gmt = time.toISOString();
       newComment.author_name = author_name;
-      newComment.content.rendered = "<p>" + content + "</p>";
+      newComment.content = "<p>" + content + "</p>";
+
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json',
+                  'authorization': "Basic ZnN3ZDpmc3dkLWNtcw=="
+      },
+        body: JSON.stringify(newComment),
+    };
+    fetch('https://fswd-wp.devnss.com/wp-json/wp/v2/comments', requestOptions)
+        .then(response => response.json())
+        .then(res => console.log(res));
+    
+      newComment.id = comments.length + 10;
       setComments([...comments, newComment]);
       setAuthorName("");
       setContent("");

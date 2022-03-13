@@ -5,7 +5,7 @@ export default function Comment(props) {
   return (
     <div>
       <div>{comment.author_name} {comment.date.replace("T", "  ")}</div>
-      <div dangerouslySetInnerHTML={{__html: comment.content.rendered}} />
+      <div dangerouslySetInnerHTML={{__html: (comment.content.rendered ? comment.content.rendered : comment.content)}} />
     </div>
   )
 }
