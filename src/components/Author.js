@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default function Author(props) {
   const {author} = props;
   return (
-    <a href={"/author/" + author.id} className="text-decoration-none text-dark">
+    <Link to={"/author/" + author.id} style={{ color: 'black', textDecoration: 'none' }}>
       <li>{author.name}</li>
-    </a>
+    </Link>
   )
 }

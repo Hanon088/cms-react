@@ -2,6 +2,7 @@ import React from 'react';
 import CategoryContainer from './CategoryContainer';
 import AuthorContainer from './AuthorContainer';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function NavBar() {
     const [categories, setCategories] = useState(null);
@@ -35,7 +36,7 @@ export default function NavBar() {
     return (
       <div>
           <div>
-              <a href="/" className='text-decoration-none text-dark'><h6>Home</h6></a>
+              <Link to="/" style={{ color: 'black', textDecoration: 'none' }}><h6>Home</h6></Link>
           </div>
           <div>
               <h6>Categories</h6>
