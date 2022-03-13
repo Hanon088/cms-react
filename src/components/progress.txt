@@ -1,0 +1,28 @@
+Frames/Structure
+-[x] author page
+    -[x] author info
+    -[x] post list
+    -[] loading
+
+-[x] category page
+    -[x] post list
+    -[] loading
+
+-[x] homepage
+    -[x] post list
+    -[] loading
+
+-[x] post page
+    -[x] post data
+    -[x] min author info
+    -[x] comments
+    -[] loading
+
+-[] sidebar/navbar
+    -[x] to home
+    -[x] categories/ to specific category page
+    -[x] authors/ to specific author
+
+optional
+-[] tags page
+-[] next post, prev post
