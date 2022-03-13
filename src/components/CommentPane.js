@@ -23,25 +23,6 @@ export default function CommentPane(props) {
         link: "",
         type: "comment",
         meta: [],
-        _links: {
-          self: [
-              {
-                href: "",
-              },
-            ],
-          collection: [
-              {
-                href: "",
-              },
-            ],
-          up: [
-              {
-                embeddable: true,
-                post_type: "post",
-                href: `https://fswd-wp.devnss.com/wp-json/wp/v2/posts/${postId}`,
-              },
-            ],
-          },
       };
       
       let time = new Date();
