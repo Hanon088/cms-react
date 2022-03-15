@@ -38,12 +38,10 @@ export default function CommentPane(props) {
       },
         body: JSON.stringify(newComment),
     };
-    fetch('https://fswd-wp.devnss.com/wp-json/wp/v2/comments', requestOptions)
-        .then(response => response.json())
-        .then(res => console.log(res));
+    fetch('https://fswd-wp.devnss.com/wp-json/wp/v2/comments', requestOptions);
     
       newComment.id = comments.length + 10;
-      setComments([...comments, newComment]);
+      setComments([newComment, ...comments]);
       setAuthorName("");
       setContent("");
     }
